@@ -1,4 +1,3 @@
-"""PARTE DA JACQUELOINE"""
 import telepot
 class Commands():
     def __init__(self,key):

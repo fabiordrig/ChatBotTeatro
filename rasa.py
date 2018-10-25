@@ -13,25 +13,25 @@ class Rasa():
         intent = response.json()["intent"]["name"]
         entities = response.json()["entities"]
         if intent == "cumprimento": 
-            resposta = "Ola, tudo bem?\nQue tal um cinema?\nÉ so perguntar!"
+            resposta = "Ola, tudo bem?\n"
             self.telegram.sendMessage(chat_id,resposta)
-        elif intent == "cinema":
-            cinema = False
+        elif intent == "encomenda":
+            encomenda = False
             for key in entities:
-                if key["entity"] == "cinema":
-                    cinema = key["value"]
+                if key["entity"] == "encomenda":
+                    encomenda = key["value"]
                     break
-            if cinema:
+            if encomenda:
                 resposta = "Ok, um segundo estou pesquisando os horários disponiveis"
                 self.telegram.sendMessage(chat_id,resposta)
             else:
-                resposta = "Em qual cinema você pretende ir?"
+                resposta = "Em qual encomenda você pretende ir?"
                 self.telegram.sendMessage(chat_id,resposta)
                 keyboard = InlineKeyboardMarkup(inline_keyboard=[
                     [InlineKeyboardButton(text="Center Vale", callback_data="351",)],
                     [InlineKeyboardButton(text="Colinas", callback_data="377",)],
                     [InlineKeyboardButton(text="Vale Sul", callback_data="1064",)]
                 ])
-                self.telegram.sendMessage(chat_id,"Escolha um cinema",reply_markup=keyboard,)
+                self.telegram.sendMessage(chat_id,"Escolha um encomenda",reply_markup=keyboard,)
         else:
             self.telegram.sendMessage(chat_id,"Desculpe não entendi :(")        

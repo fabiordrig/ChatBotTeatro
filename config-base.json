@@ -1,7 +1,7 @@
 {
-    "bot_key":"",
-    "rasa_url":"",
-    "rasa_project":"",
+    "bot_key":"686990997:AAHDWftfzB535BY_KoqD7BPv-Ge24syja7U",
+    "rasa_url":"localhost:5000",
+    "rasa_project":"thandera",
     "commands":[
         "help - Lista de códigos que eu suporto",
         "meus_dados - Retorna seus dados",
