@@ -22,16 +22,10 @@ class Rasa():
                     encomenda = key["value"]
                     break
             if encomenda:
-                resposta = "Ok, um segundo estou pesquisando os horários disponiveis"
+                resposta = "Ok, um segundo estou pesquisando a sua encomenda"
                 self.telegram.sendMessage(chat_id,resposta)
             else:
-                resposta = "Em qual encomenda você pretende ir?"
+                resposta = "Pode digitar novamente sua encomenda?"
                 self.telegram.sendMessage(chat_id,resposta)
-                keyboard = InlineKeyboardMarkup(inline_keyboard=[
-                    [InlineKeyboardButton(text="Center Vale", callback_data="351",)],
-                    [InlineKeyboardButton(text="Colinas", callback_data="377",)],
-                    [InlineKeyboardButton(text="Vale Sul", callback_data="1064",)]
-                ])
-                self.telegram.sendMessage(chat_id,"Escolha um encomenda",reply_markup=keyboard,)
         else:
             self.telegram.sendMessage(chat_id,"Desculpe não entendi :(")        

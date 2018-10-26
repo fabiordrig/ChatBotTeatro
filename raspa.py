@@ -1,7 +1,8 @@
-from pymongo import MongoClient
+##exemplo de raspagem de filmes
+
 import requests
 import json
-import pymongo
+
 def getFilmes(data,cinema):
     url = "https://api-content.ingresso.com/v0//sessions/city/46/theater/%s?partnership=&date=%s"%(cinema,data)
     html = requests.get(url)
